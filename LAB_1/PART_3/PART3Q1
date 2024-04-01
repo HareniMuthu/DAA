@@ -1,0 +1,26 @@
+def find_pairs_with_sum(arr, target_sum):
+    pairs = []
+    seen = set()
+    for num in arr:
+        complement = target_sum - num
+        if complement in seen:
+            pairs.append((complement, num))
+        seen.add(num)
+    return pairs
+
+# Take user input for array
+arr = list(map(int, input("Enter the array elements separated by space: ").split()))
+
+# Take user input for target sum
+target_sum = int(input("Enter the target sum: "))
+
+# Find pairs with given sum
+pairs = find_pairs_with_sum(arr, target_sum)
+
+# Print the result
+if pairs:
+    print("Pairs with sum {} found:".format(target_sum))
+    for pair in pairs:
+        print(pair)
+else:
+    print("No pair found with sum {} in the array.".format(target_sum))

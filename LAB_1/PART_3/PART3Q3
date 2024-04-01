@@ -1,0 +1,18 @@
+def find_swapped_elements(arr):
+    first, second = None, None
+    for i in range(len(arr) - 1):
+        if arr[i] > arr[i + 1]:
+            if first is None:
+                first = i
+            else:
+                second = i + 1
+    return first, second
+
+def sort_array(arr):
+    first, second = find_swapped_elements(arr)
+    arr[first], arr[second] = arr[second], arr[first]
+    return arr
+
+arr = list(map(int, input("Enter the array with two swapped elements: ").split()))
+sorted_arr = sort_array(arr)
+print("Sorted array:", sorted_arr)
